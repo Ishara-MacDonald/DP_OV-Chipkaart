@@ -45,10 +45,7 @@ public class Driver {
         // Haal alle reizigers op uit de database
         List<Reiziger> reizigers = rdao.findAll();
         System.out.println("[Test] ReizigerDAO.findAll() geeft de volgende reizigers:");
-        for (Reiziger r : reizigers) {
-            System.out.println(r);
-        }
-        System.out.println();
+        printReizigerLoop(reizigers);
 
         // Maak een nieuwe reiziger aan en persisteer deze in de database
         String gbdatum = "1981-03-14";
@@ -62,13 +59,19 @@ public class Driver {
         System.out.println(String.format("[Test] Systeem vind reiziger de volgende reiziger bij ReizigerDAO.findById(77):\n %s", rdao.findById(77).toString()));
         System.out.println();
 
-        List<Reiziger> reizigersByBirth = rdao.findByGbdatum("2002-12-03");
-        System.out.println("[Test] ReizigerDAO.findByGbdatum('2002-12-03') geeft de volgende reizigers:");
-        for (Reiziger r : reizigersByBirth) {
-            System.out.println(r);
-        }
+        // Update de nieuwe reiziger in de database en geef deze terug
+        sietske.setTussenvoegsel("de");
+        sietske.setAchternaam("Boer");
+        System.out.println("[Test] ReizigerDAO.update() geeft de volgende resultaten:\nVoor de update:");
+        System.out.println(rdao.findById(77));
+        System.out.println("Na de update:");
+        rdao.update(sietske);
+        System.out.println(rdao.findById(77));
         System.out.println();
 
+        // Vind reizigers met de geboortedatum '2002-12-03'
+        System.out.println("[Test] ReizigerDAO.findByGbdatum('2002-12-03') geeft de volgende reizigers:");
+        printReizigerLoop(rdao.findByGbdatum("2002-12-03"));
 
         // Verwijder de nieuwe reiziger en haal deze uit de database
         System.out.print("[Test] Eerst " + reizigers.size() + " reizigers, na ReizigerDAO.delete() ");
@@ -76,5 +79,12 @@ public class Driver {
         System.out.println(rdao.findAll().size() + " reizigers");
 
         // Voeg aanvullende tests van de ontbrekende CRUD-operaties in.
+    }
+
+    private static void printReizigerLoop(List<Reiziger> listReiziger){
+        for(Reiziger r : listReiziger){
+            System.out.println(r);
+        }
+        System.out.println();
     }
 }

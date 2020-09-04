@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="" />
+    <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reiziger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reiziger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +21,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1glMqJ7eZVqU1YynUjjxys4LEF9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -26,6 +37,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/postgresql-42.2.16.jar!/" />
@@ -73,7 +85,7 @@
       <workItem from="1598804208489" duration="612000" />
       <workItem from="1599130518102" duration="1218000" />
       <workItem from="1599222274563" duration="2173000" />
-      <workItem from="1599227402836" duration="7516000" />
+      <workItem from="1599227402836" duration="9011000" />
     </task>
     <servers />
   </component>
@@ -98,22 +110,22 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685671158" />
-    <state width="1637" height="211" key="GridCell.Tab.0.bottom" timestamp="1599234480388">
+    <state width="1637" height="345" key="GridCell.Tab.0.bottom" timestamp="1599236776993">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="211" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599234480388" />
-    <state width="1637" height="211" key="GridCell.Tab.0.center" timestamp="1599234480388">
+    <state width="1637" height="345" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599236776993" />
+    <state width="1637" height="345" key="GridCell.Tab.0.center" timestamp="1599236776993">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="211" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599234480388" />
-    <state width="1637" height="211" key="GridCell.Tab.0.left" timestamp="1599234480388">
+    <state width="1637" height="345" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599236776993" />
+    <state width="1637" height="345" key="GridCell.Tab.0.left" timestamp="1599236776993">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="211" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599234480388" />
-    <state width="1637" height="211" key="GridCell.Tab.0.right" timestamp="1599234480388">
+    <state width="1637" height="345" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599236776993" />
+    <state width="1637" height="345" key="GridCell.Tab.0.right" timestamp="1599236776993">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="211" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599234480388" />
+    <state width="1637" height="345" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599236776993" />
     <state x="341" y="148" key="SettingsEditor" timestamp="1598685676310">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -127,5 +139,9 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="565" y="467" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685441131" />
+    <state x="570" y="272" key="extract.method.dialog" timestamp="1599235914422">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="570" y="272" key="extract.method.dialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599235914422" />
   </component>
 </project>

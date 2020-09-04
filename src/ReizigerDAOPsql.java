@@ -49,7 +49,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
     public boolean update(Reiziger reiziger){
         try{
             // Create a SQL Query
-            String sqlQuery = "UPDATE reiziger SET voorletters = ?, tussenvoegsel = ?, achternaam = ?, geboortedatum = ?) WHERE reiziger_id = ?";
+            String sqlQuery = "UPDATE reiziger SET voorletters = ?, tussenvoegsel = ?, achternaam = ?, geboortedatum = ? WHERE reiziger_id = ?";
 
             // Create a Statement
             PreparedStatement st = conn.prepareStatement(sqlQuery);
@@ -59,7 +59,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             st.setDate(4, (Date) reiziger.getGeboortedatum());
             st.setInt(5, reiziger.getId());
 
-            st.executeUpdate(sqlQuery);
+            st.executeUpdate();
             st.close();
 
             return true;
@@ -113,19 +113,8 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             String sqlQuery = "SELECT * FROM reiziger WHERE geboortedatum = ?";
             PreparedStatement st = conn.prepareStatement(sqlQuery);
             st.setDate(1, Date.valueOf(datum));
-            ResultSet rs = st.executeQuery();
-            ArrayList<Reiziger> reizigers = new ArrayList<>();
-            while(rs.next()){
 
-                int id = rs.getInt("reiziger_id");
-                String voorletters = rs.getString("voorletters");
-                String tussenvoegsel = rs.getString("tussenvoegsel");
-                String achternaam = rs.getString("achternaam");
-                Date geboortedatum = rs.getDate("geboortedatum");
-
-                reizigers.add(new Reiziger(id, voorletters, tussenvoegsel, achternaam, geboortedatum));
-            }
-            return reizigers;
+            return loopThroughDataBase(st.executeQuery());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -134,10 +123,19 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
     public List<Reiziger> findAll(){
         try{
-            ArrayList<Reiziger> reizigers = new ArrayList<>();
             String sqlQuery = "SELECT * FROM reiziger";
             PreparedStatement st = conn.prepareStatement(sqlQuery);
-            ResultSet rs = st.executeQuery();
+
+            return loopThroughDataBase(st.executeQuery());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Reiziger> loopThroughDataBase(ResultSet rs){
+        ArrayList<Reiziger> reizigers = new ArrayList<>();
+        try{
             while(rs.next()){
 
                 int id = rs.getInt("reiziger_id");
@@ -149,20 +147,9 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                 reizigers.add(new Reiziger(id, voorletters, tussenvoegsel, achternaam, geboortedatum));
             }
             return reizigers;
-        }catch(Exception e){
+        }catch (Exception e){
             e.printStackTrace();
+            return null;
         }
-        return null;
-        /*
-         while (rs.next()) {
-          int i = rs.getInt("userid");
-          String str = rs.getString("username");
-
-          //Assuming you have a user object
-          User user = new User(i, str);
-
-          ll.add(user);
-        }
-        */
     }
 }

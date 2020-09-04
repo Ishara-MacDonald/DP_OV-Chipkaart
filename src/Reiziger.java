@@ -22,9 +22,13 @@ public class Reiziger {
     public Date getGeboortedatum() { return geboortedatum; }
 
     public void setId(int id) { this.id = id; }
+    public void setVoorletters(String voorletters) { this.voorletters = voorletters; }
+    public void setTussenvoegsel(String tussenvoegsel) { this.tussenvoegsel = tussenvoegsel; }
+    public void setAchternaam(String achternaam) { this.achternaam = achternaam; }
+    public void setGeboortedatum(Date geboortedatum) { this.geboortedatum = geboortedatum; }
 
     @Override
     public String toString() {
-        return String.format("id: %d || naam: %s.%s %s || geboortedatum: %s", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString());
+        return String.format("id: %d || naam: %s. %s %s || geboortedatum: %s", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString());
     }
 }
