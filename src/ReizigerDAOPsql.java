@@ -1,12 +1,10 @@
-import jdk.jshell.spi.ExecutionControlProvider;
-
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReizigerDAOPsql implements ReizigerDAO {
     private Connection conn;
+    private AdresDAO adao;
 
     public ReizigerDAOPsql(Connection conn){
         this.conn = conn;
@@ -29,17 +27,6 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             st.close();
 
             return true;
-            /*            // 2. Create a statement
-            Statement st = connection.createStatement();
-
-            // 3. Execute SQL query
-            ResultSet rs = st.executeQuery("SELECT * FROM reiziger");
-
-            // 4. Process the result set
-            System.out.println("Alle reizigers:");
-            while (rs.next()){
-                System.out.println(rs.getString("reiziger_id") + " " + rs.getString("voorletters") + ". " + rs.getString("achternaam"));
-            }*/
         }catch(Exception e){
             e.printStackTrace();
         }

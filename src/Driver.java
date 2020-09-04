@@ -9,20 +9,10 @@ public class Driver {
     public static void main(String[] args) {
 
         try{
-            // 1. Get a connection to database
+            // Get a connection to database
             connection = DriverManager.getConnection("jdbc:postgresql://localhost/ovchip", "postgres", "PostGres");
-            testReizigerDAO(new ReizigerDAOPsql(connection));
-//            // 2. Create a statement
-//            Statement st = connection.createStatement();
-//
-//            // 3. Execute SQL query
-//            ResultSet rs = st.executeQuery("SELECT * FROM reiziger");
-//
-//            // 4. Process the result set
-//            System.out.println("Alle reizigers:");
-//            while (rs.next()){
-//                System.out.println(rs.getString("reiziger_id") + " " + rs.getString("voorletters") + ". " + rs.getString("achternaam"));
-//            }
+//            testReizigerDAO(new ReizigerDAOPsql(connection));
+            testAdresDAO(new AdresDAOPsql(connection));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -86,5 +76,27 @@ public class Driver {
             System.out.println(r);
         }
         System.out.println();
+    }
+
+    /**
+     * P3. Adres DAO: persistentie van een klasse
+     *
+     * Deze methode test de CRUD-functionaliteit van de Adres DAO
+     *
+     * @throws SQLException
+     */
+    private static void testAdresDAO(AdresDAO adao) throws SQLException {
+        System.out.println("\n---------- Test AdresDAO -------------");
+
+        ReizigerDAO rdao = new ReizigerDAOPsql(connection);
+
+        // Maak een nieuw adres aan en persisteer deze in de database
+        Adres adres1 = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
+        System.out.println(adao.save(adres1));
+        adres1.setPostcode("2342DX");
+        System.out.println(adao.update(adres1));
+        System.out.println(adao.findById(7));
+        System.out.println(adao.findByReiziger(rdao.findById(1)));
+        System.out.println(adao.delete(adres1));
     }
 }
