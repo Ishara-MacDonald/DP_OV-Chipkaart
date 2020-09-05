@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Reiziger {
     private int id;
@@ -7,6 +9,8 @@ public class Reiziger {
     private String achternaam;
     private Date geboortedatum;
     private Adres adres = null;
+
+    private List<OVChipkaart> kaarten = new ArrayList<>();
 
     public Reiziger(int id, String voorletters, String tussenvoegsel, String achternaam, Date geboortedatum){
         this.id = id;

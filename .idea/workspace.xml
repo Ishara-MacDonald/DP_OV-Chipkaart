@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reiziger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reiziger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +37,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/postgresql-42.2.16.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DataPersistency-student" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -86,6 +85,8 @@
       <workItem from="1599227402836" duration="13096000" />
       <workItem from="1599296457532" duration="5384000" />
       <workItem from="1599310148759" duration="1145000" />
+      <workItem from="1599315074043" duration="33000" />
+      <workItem from="1599315880295" duration="502000" />
     </task>
     <servers />
   </component>
@@ -107,10 +108,10 @@
     </state>
     <state x="621" y="189" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599237930399" />
     <state x="2334" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599223205556" />
-    <state x="567" y="315" key="FileChooserDialogImpl" timestamp="1598685671158">
+    <state x="567" y="315" key="FileChooserDialogImpl" timestamp="1599315104968">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685671158" />
+    <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315104968" />
     <state width="1637" height="349" key="GridCell.Tab.0.bottom" timestamp="1599311301339">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -147,10 +148,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="148" key="SettingsEditor/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685676310" />
-    <state x="536" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1599310148560">
+    <state x="536" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1599315075038">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599310148560" />
+    <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315075038" />
     <state x="2244" y="359" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599227404528" />
     <state x="565" y="467" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1598685441131">
       <screen x="0" y="0" width="1680" height="1010" />
