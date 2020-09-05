@@ -136,7 +136,9 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                 String achternaam = rs.getString("achternaam");
                 Date geboortedatum = rs.getDate("geboortedatum");
 
-                reizigers.add(new Reiziger(id, voorletters, tussenvoegsel, achternaam, geboortedatum));
+                Reiziger newReiziger = new Reiziger(id, voorletters, tussenvoegsel, achternaam, geboortedatum);
+                newReiziger.setAdres(adao.findByReiziger(findById(id)));
+                reizigers.add(newReiziger);
             }
             return reizigers;
         }catch (Exception e){

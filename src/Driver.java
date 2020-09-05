@@ -105,6 +105,11 @@ public class Driver {
         }
         System.out.println();
 
+        for(Reiziger r : rdao.findAll()){
+            System.out.println(r);
+        }
+        System.out.println();
+
         // Maak een nieuw adres aan en persisteer deze in de database
         System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", adao.findAll().size()));
         adao.save(adres1);
@@ -121,14 +126,13 @@ public class Driver {
         System.out.println(String.format("Na de update: %s", adao.findById(7)));
         System.out.println();
 
+        System.out.println("[Test] AdresDAO.findByReiziger() geeft het volgende adres:");
         System.out.println(adao.findByReiziger(rdao.findById(1)));
         System.out.println();
 
-        System.out.println(rdao.findById(77));
-        System.out.println();
-
-        System.out.println(adao.delete(adres1));
-        System.out.println();
+        System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", adao.findAll().size()));
+        adao.delete(adres1);
+        System.out.println(String.format(" %s adressen", adao.findAll().size()));
 
         rdao.delete(rdao.findById(77));
     }

@@ -6,7 +6,7 @@ public class Reiziger {
     private String tussenvoegsel;
     private String achternaam;
     private Date geboortedatum;
-    private Adres adres;
+    private Adres adres = null;
 
     public Reiziger(int id, String voorletters, String tussenvoegsel, String achternaam, Date geboortedatum){
         this.id = id;
@@ -33,7 +33,6 @@ public class Reiziger {
     public String toString() {
         String sString = String.format("Reiziger {#%s %s. %s %s, geb. %s}", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString());
         if(adres != null){
-            System.out.println("ey");
             sString = String.format("Reiziger {#%s %s. %s %s, geb. %s, %s }", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString(), adres.toString());
         }
         return sString;
