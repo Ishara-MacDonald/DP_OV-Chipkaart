@@ -8,6 +8,11 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
     public ReizigerDAOPsql(Connection conn){
         this.conn = conn;
+        adao = new AdresDAOPsql(conn);
+    }
+
+    public void setAdao(AdresDAO adao) {
+        this.adao = adao;
     }
 
     public boolean save(Reiziger reiziger){

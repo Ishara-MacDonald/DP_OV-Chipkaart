@@ -11,7 +11,7 @@ public class Driver {
         try{
             // Get a connection to database
             connection = DriverManager.getConnection("jdbc:postgresql://localhost/ovchip", "postgres", "PostGres");
-//            testReizigerDAO(new ReizigerDAOPsql(connection));
+            testReizigerDAO(new ReizigerDAOPsql(connection));
             testAdresDAO(new AdresDAOPsql(connection));
         }catch(Exception e){
             e.printStackTrace();
@@ -31,6 +31,9 @@ public class Driver {
      */
     private static void testReizigerDAO(ReizigerDAO rdao) throws SQLException {
         System.out.println("\n---------- Test ReizigerDAO -------------");
+
+        AdresDAO adao = new AdresDAOPsql(connection);
+        rdao.setAdao(adao);
 
         // Haal alle reizigers op uit de database
         List<Reiziger> reizigers = rdao.findAll();
@@ -85,18 +88,48 @@ public class Driver {
      *
      * @throws SQLException
      */
-    private static void testAdresDAO(AdresDAO adao) throws SQLException {
+    private static void testAdresDAO(AdresDAO adao) {
         System.out.println("\n---------- Test AdresDAO -------------");
 
         ReizigerDAO rdao = new ReizigerDAOPsql(connection);
+        Adres adres1 = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
+
+        adao.setRdao(rdao);
+        rdao.save(new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14")));
+
+
+        // Haal alle reizigers op uit de database
+        System.out.println("[Test] AdresDAO.findAll() geeft de volgende reizigers:");
+        for(Adres a : adao.findAll()){
+            System.out.println(a);
+        }
+        System.out.println();
 
         // Maak een nieuw adres aan en persisteer deze in de database
-        Adres adres1 = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
-        System.out.println(adao.save(adres1));
-        adres1.setPostcode("2342DX");
-        System.out.println(adao.update(adres1));
+        System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", adao.findAll().size()));
+        adao.save(adres1);
+        System.out.println(String.format(" %s adressen", adao.findAll().size()));
+        System.out.println();
+
+        System.out.println("[Test] Systeem vind het volgende adres bij AdresDAO.findById(7):");
         System.out.println(adao.findById(7));
+        System.out.println();
+
+        System.out.println(String.format("[Test] AdresDAO.update() geeft de volgende resultaten:\nVoor de update: %s", adao.findById(7)));
+        adres1.setPostcode("2342DX");
+        adao.update(adres1);
+        System.out.println(String.format("Na de update: %s", adao.findById(7)));
+        System.out.println();
+
         System.out.println(adao.findByReiziger(rdao.findById(1)));
+        System.out.println();
+
+        System.out.println(rdao.findById(77));
+        System.out.println();
+
         System.out.println(adao.delete(adres1));
+        System.out.println();
+
+        rdao.delete(rdao.findById(77));
     }
 }

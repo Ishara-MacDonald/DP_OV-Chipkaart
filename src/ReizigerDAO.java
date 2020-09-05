@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.util.List;
 
 interface ReizigerDAO {
+    public void setAdao(AdresDAO adao);
 
     public boolean save(Reiziger reiziger);
     public boolean update(Reiziger reiziger);

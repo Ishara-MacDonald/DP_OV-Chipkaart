@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdresDAOPsql implements AdresDAO{
@@ -11,6 +12,10 @@ public class AdresDAOPsql implements AdresDAO{
 
     public AdresDAOPsql(Connection conn){
         this.conn = conn;
+    }
+
+    public void setRdao(ReizigerDAO rdao) {
+        this.rdao = rdao;
     }
 
     public boolean save(Adres adres){
@@ -124,6 +129,28 @@ public class AdresDAOPsql implements AdresDAO{
     }
 
     public List<Adres> findAll() {
+        ArrayList<Adres> adressen = new ArrayList<>();
+        try{
+            String sqlQuery = "SELECT * FROM adres";
+            PreparedStatement st = conn.prepareStatement(sqlQuery);
+            ResultSet rs = st.executeQuery();
+
+            while(rs.next()){
+                int id = rs.getInt("adres_id");
+                String postcode = rs.getString("postcode");
+                String huisnummer = rs.getString("huisnummer");
+                String straat = rs.getString("straat");
+                String woonplaats = rs.getString("woonplaats");
+                int reiziger_id = rs.getInt( "reiziger_id");
+
+                Adres newAdres = new Adres(id, postcode, huisnummer, straat, woonplaats, reiziger_id);
+                adressen.add(newAdres);
+                rdao.findById(reiziger_id).setAdres(newAdres);
+            }
+            return adressen;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 }
