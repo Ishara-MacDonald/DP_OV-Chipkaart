@@ -105,11 +105,6 @@ public class Driver {
         }
         System.out.println();
 
-        for(Reiziger r : rdao.findAll()){
-            System.out.println(r);
-        }
-        System.out.println();
-
         // Maak een nieuw adres aan en persisteer deze in de database
         System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", adao.findAll().size()));
         adao.save(adres1);
