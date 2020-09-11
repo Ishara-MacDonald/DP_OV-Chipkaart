@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ishar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OVChipkaartDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OVChipkaartDAOPsql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/AdresDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/AdresDAOPsql.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Reiziger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Reiziger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdresDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdresDAOPsql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OVChipkaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReizigerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +97,7 @@
       <workItem from="1599744807437" duration="2530000" />
       <workItem from="1599811566287" duration="572000" />
       <workItem from="1599816960113" duration="4106000" />
-      <workItem from="1599836008304" duration="951000" />
+      <workItem from="1599836008304" duration="4041000" />
     </task>
     <servers />
   </component>
@@ -136,26 +125,26 @@
     </state>
     <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315104968" />
     <state x="648" y="324" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599819015573" />
-    <state width="1877" height="363" key="GridCell.Tab.0.bottom" timestamp="1599836959044">
+    <state width="1877" height="181" key="GridCell.Tab.0.bottom" timestamp="1599845916138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1877" height="363" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959044" />
-    <state width="1877" height="363" key="GridCell.Tab.0.center" timestamp="1599836959043">
+    <state width="1877" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
+    <state width="1877" height="181" key="GridCell.Tab.0.center" timestamp="1599845916138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1877" height="363" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959043" />
-    <state width="1877" height="363" key="GridCell.Tab.0.left" timestamp="1599836959043">
+    <state width="1877" height="181" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
+    <state width="1877" height="181" key="GridCell.Tab.0.left" timestamp="1599845916137">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1877" height="363" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959043" />
-    <state width="1877" height="363" key="GridCell.Tab.0.right" timestamp="1599836959044">
+    <state width="1877" height="181" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916137" />
+    <state width="1877" height="181" key="GridCell.Tab.0.right" timestamp="1599845916138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1877" height="363" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959044" />
+    <state width="1877" height="181" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
     <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1599240871410">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>

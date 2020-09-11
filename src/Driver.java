@@ -56,10 +56,10 @@ public class Driver {
         sietske.setTussenvoegsel("de");
         sietske.setAchternaam("Boer");
         System.out.println("[Test] ReizigerDAO.update() geeft de volgende resultaten:\nVoor de update:");
-        System.out.println(rdao.findById(77));
-        System.out.println("Na de update:");
+        System.out.println(sietske);
         rdao.update(sietske);
-        System.out.println(rdao.findById(77));
+        System.out.println("Na de update:");
+        System.out.println(sietske);
         System.out.println();
 
         // Vind reizigers met de geboortedatum '2002-12-03'
