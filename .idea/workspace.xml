@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ishar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OVChipkaartDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OVChipkaartDAOPsql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reiziger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reiziger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/AdresDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/AdresDAOPsql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Reiziger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Reiziger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/ReizigerDAOPsql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdresDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdresDAOPsql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OVChipkaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReizigerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +36,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -37,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DataPersistency-student" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DataPersistency-student-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,9 +57,12 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.155" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Self Development\HU\Jaar 2\Semester 1\Data &amp; Persistency\Projects\DP_OV-Chipkaart\lib" />
     </key>
@@ -68,6 +81,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -87,11 +101,19 @@
       <workItem from="1599310148759" duration="1145000" />
       <workItem from="1599315074043" duration="33000" />
       <workItem from="1599315880295" duration="502000" />
+      <workItem from="1599465402326" duration="255000" />
+      <workItem from="1599471796827" duration="1605000" />
+      <workItem from="1599480390311" duration="1206000" />
+      <workItem from="1599579582998" duration="627000" />
+      <workItem from="1599744807437" duration="2530000" />
+      <workItem from="1599811566287" duration="572000" />
+      <workItem from="1599816960113" duration="4106000" />
+      <workItem from="1599836008304" duration="951000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="432" y="164" key="#Project_Structure" timestamp="1598685389759">
@@ -103,31 +125,37 @@
     </state>
     <state x="432" y="164" key="#SQL_Dialects/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598686657870" />
     <state x="2135" y="203" key="#SQL_Dialects/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599229264358" />
-    <state x="621" y="189" key="#com.intellij.ide.util.MemberChooser" timestamp="1599237930399">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="710" y="195" key="#com.intellij.ide.util.MemberChooser" timestamp="1599745631091">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="621" y="189" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599237930399" />
     <state x="2334" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599223205556" />
-    <state x="567" y="315" key="FileChooserDialogImpl" timestamp="1599315104968">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="710" y="195" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599745631091" />
+    <state x="648" y="324" key="FileChooserDialogImpl" timestamp="1599819015573">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315104968" />
-    <state width="1637" height="349" key="GridCell.Tab.0.bottom" timestamp="1599311301339">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="648" y="324" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599819015573" />
+    <state width="1877" height="363" key="GridCell.Tab.0.bottom" timestamp="1599836959044">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1637" height="349" key="GridCell.Tab.0.center" timestamp="1599311301339">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1877" height="363" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959044" />
+    <state width="1877" height="363" key="GridCell.Tab.0.center" timestamp="1599836959043">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1637" height="349" key="GridCell.Tab.0.left" timestamp="1599311301339">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1877" height="363" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959043" />
+    <state width="1877" height="363" key="GridCell.Tab.0.left" timestamp="1599836959043">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
-    <state width="1637" height="349" key="GridCell.Tab.0.right" timestamp="1599311301339">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1877" height="363" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959043" />
+    <state width="1877" height="363" key="GridCell.Tab.0.right" timestamp="1599836959044">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="349" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
+    <state width="1877" height="363" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599836959044" />
     <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1599240871410">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -144,15 +172,17 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state width="1637" height="336" key="GridCell.Tab.1.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599240871410" />
-    <state x="341" y="148" key="SettingsEditor" timestamp="1598685676310">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="880" y="133" key="SettingsEditor" timestamp="1599819042649">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="341" y="148" key="SettingsEditor/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685676310" />
-    <state x="536" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1599315075038">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="880" y="133" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599819042649" />
+    <state x="613" y="340" key="com.intellij.ide.util.TipDialog" timestamp="1599816970467">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315075038" />
     <state x="2244" y="359" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599227404528" />
+    <state x="613" y="340" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599816970467" />
     <state x="565" y="467" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1598685441131">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -161,5 +191,9 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="570" y="272" key="extract.method.dialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599235914422" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1599745932566">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599745932566" />
   </component>
 </project>

@@ -8,17 +8,17 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
     public ReizigerDAOPsql(Connection conn){
         this.conn = conn;
-        adao = new AdresDAOPsql(conn);
     }
 
     public void setAdao(AdresDAO adao) {
         this.adao = adao;
     }
 
-    public boolean save(Reiziger reiziger){
+    // Hoe moet je een adres opslaan in save(Reiziger reiziger) ?
+    public boolean save(Reiziger reiziger, Adres adres){
         try{
             // Create a SQL Query
-            String sqlQuery = "INSERT INTO reiziger(reiziger_id, voorletters, tussenvoegsel, achternaam, geboortedatum) VALUES (?, ?, ?, ?, ?) ";
+            String sqlQuery = "INSERT INTO reiziger(reiziger_id, voorletters, tussenvoegsel, achternaam, geboortedatum) VALUES (?, ?, ?, ?, ?)" ;
 
             // Create a Statement
             PreparedStatement st = conn.prepareStatement(sqlQuery);
@@ -31,6 +31,11 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             st.executeUpdate();
             st.close();
 
+            if( adao != null && adres != null ){
+                adao.save(adres);
+            }
+
+            reiziger.setAdres(adres);
             return true;
         }catch(Exception e){
             e.printStackTrace();
@@ -137,7 +142,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                 Date geboortedatum = rs.getDate("geboortedatum");
 
                 Reiziger newReiziger = new Reiziger(id, voorletters, tussenvoegsel, achternaam, geboortedatum);
-                newReiziger.setAdres(adao.findByReiziger(findById(id)));
+                newReiziger.setAdres(adao.findByReiziger(newReiziger));
                 reizigers.add(newReiziger);
             }
             return reizigers;

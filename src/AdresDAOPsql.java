@@ -145,7 +145,6 @@ public class AdresDAOPsql implements AdresDAO{
 
                 Adres newAdres = new Adres(id, postcode, huisnummer, straat, woonplaats, reiziger_id);
                 adressen.add(newAdres);
-                rdao.findById(reiziger_id).setAdres(newAdres);
             }
             return adressen;
         }catch(Exception e){

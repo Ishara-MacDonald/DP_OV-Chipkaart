@@ -44,7 +44,7 @@ public class Driver {
         String gbdatum = "1981-03-14";
         Reiziger sietske = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf(gbdatum));
         System.out.print("[Test] Eerst " + reizigers.size() + " reizigers, na ReizigerDAO.save() ");
-        rdao.save(sietske);
+        rdao.save(sietske, null);
         System.out.println(rdao.findAll().size() + " reizigers");
         System.out.println();
 
@@ -92,11 +92,9 @@ public class Driver {
         System.out.println("\n---------- Test AdresDAO -------------");
 
         ReizigerDAO rdao = new ReizigerDAOPsql(connection);
-        Adres adres1 = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
-
-        adao.setRdao(rdao);
-        rdao.save(new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14")));
-
+        Reiziger newReiziger = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14"));
+        Adres newAdres = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
+        rdao.save(newReiziger, newAdres);
 
         // Haal alle reizigers op uit de database
         System.out.println("[Test] AdresDAO.findAll() geeft de volgende reizigers:");
@@ -107,7 +105,7 @@ public class Driver {
 
         // Maak een nieuw adres aan en persisteer deze in de database
         System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", adao.findAll().size()));
-        adao.save(adres1);
+        adao.save(newAdres);
         System.out.println(String.format(" %s adressen", adao.findAll().size()));
         System.out.println();
 
@@ -116,8 +114,8 @@ public class Driver {
         System.out.println();
 
         System.out.println(String.format("[Test] AdresDAO.update() geeft de volgende resultaten:\nVoor de update: %s", adao.findById(7)));
-        adres1.setPostcode("2342DX");
-        adao.update(adres1);
+        newAdres.setPostcode("2342DX");
+        adao.update(newAdres);
         System.out.println(String.format("Na de update: %s", adao.findById(7)));
         System.out.println();
 
@@ -126,7 +124,7 @@ public class Driver {
         System.out.println();
 
         System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", adao.findAll().size()));
-        adao.delete(adres1);
+        adao.delete(newAdres);
         System.out.println(String.format(" %s adressen", adao.findAll().size()));
 
         rdao.delete(rdao.findById(77));
