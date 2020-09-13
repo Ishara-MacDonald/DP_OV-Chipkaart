@@ -4,7 +4,12 @@
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/OVChipkaartDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/OVChipkaartDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/OVChipkaartDAOPsql.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/OVChipkaartDAOPsql.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OVChipkaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OVChipkaartDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaartDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OVChipkaartDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaartDAOPsql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +103,9 @@
       <workItem from="1599811566287" duration="572000" />
       <workItem from="1599816960113" duration="4106000" />
       <workItem from="1599836008304" duration="4041000" />
+      <workItem from="1599924090083" duration="1678000" />
+      <workItem from="1599978735051" duration="1748000" />
+      <workItem from="1599980904791" duration="891000" />
     </task>
     <servers />
   </component>
@@ -125,25 +133,25 @@
     </state>
     <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315104968" />
     <state x="648" y="324" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599819015573" />
-    <state width="1877" height="181" key="GridCell.Tab.0.bottom" timestamp="1599845916138">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1637" height="349" key="GridCell.Tab.0.bottom" timestamp="1599981175199">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="349" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
+    <state width="1637" height="349" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599981175199" />
     <state width="1877" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
-    <state width="1877" height="181" key="GridCell.Tab.0.center" timestamp="1599845916138">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1637" height="349" key="GridCell.Tab.0.center" timestamp="1599981175199">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="349" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
+    <state width="1637" height="349" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599981175199" />
     <state width="1877" height="181" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
-    <state width="1877" height="181" key="GridCell.Tab.0.left" timestamp="1599845916137">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1637" height="349" key="GridCell.Tab.0.left" timestamp="1599981175199">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="349" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
+    <state width="1637" height="349" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599981175199" />
     <state width="1877" height="181" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916137" />
-    <state width="1877" height="181" key="GridCell.Tab.0.right" timestamp="1599845916138">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1637" height="349" key="GridCell.Tab.0.right" timestamp="1599981175199">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="349" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599311301339" />
+    <state width="1637" height="349" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599981175199" />
     <state width="1877" height="181" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
     <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1599240871410">
       <screen x="0" y="0" width="1680" height="1010" />
@@ -161,15 +169,19 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state width="1637" height="336" key="GridCell.Tab.1.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599240871410" />
+    <state x="420" y="240" key="IDE.errors.dialog" timestamp="1599981214646">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="420" y="240" key="IDE.errors.dialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599981214646" />
     <state x="880" y="133" key="SettingsEditor" timestamp="1599819042649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="341" y="148" key="SettingsEditor/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685676310" />
     <state x="880" y="133" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599819042649" />
-    <state x="613" y="340" key="com.intellij.ide.util.TipDialog" timestamp="1599816970467">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="536" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1599924097343">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315075038" />
+    <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599924097343" />
     <state x="2244" y="359" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599227404528" />
     <state x="613" y="340" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599816970467" />
     <state x="565" y="467" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1598685441131">

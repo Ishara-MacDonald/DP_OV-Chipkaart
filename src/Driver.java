@@ -13,6 +13,7 @@ public class Driver {
             connection = DriverManager.getConnection("jdbc:postgresql://localhost/ovchip", "postgres", "PostGres");
             testReizigerDAO(new ReizigerDAOPsql(connection));
             testAdresDAO(new AdresDAOPsql(connection));
+            testOVChipkaartDAO(new OVChipkaartDAOPsql(connection));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -128,5 +129,29 @@ public class Driver {
         System.out.println(String.format(" %s adressen", adao.findAll().size()));
 
         rdao.delete(rdao.findById(77));
+    }
+
+    /**
+     * P4. OVChipkaart DAO: persistentie van een klasse
+     *
+     * Deze methode test de CRUD-functionaliteit van de OVChipkaart DAO
+     *
+     * @throws SQLException
+     */
+    private static void testOVChipkaartDAO(OVChipkaartDAO ovdao){
+        System.out.println("\n---------- Test OVChipkaartDAO -------------");
+
+        // Haal alle reizigers op uit de database
+        System.out.println("[Test] AdresDAO.findAll() geeft de volgende reizigers:");
+
+        System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", ovdao.findAll().size()));
+
+        System.out.println("[Test] Systeem vind het volgende adres bij AdresDAO.findById(7):");
+
+        //System.out.println(String.format("[Test] AdresDAO.update() geeft de volgende resultaten:\nVoor de update: %s", ovdao.findById(7)));
+
+        System.out.println("[Test] AdresDAO.findByReiziger() geeft het volgende adres:");
+
+        System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", ovdao.findAll().size()));
     }
 }

@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class OVChipkaartDAOPsql implements OVChipkaartDAO{
@@ -9,7 +10,6 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
     private Connection conn;
     private OVChipkaartDAO ovdao;
     private Reiziger reiziger;
-
 
     public OVChipkaartDAOPsql(Connection conn){
         this.conn = conn;
@@ -40,6 +40,29 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
             e.printStackTrace();
         }
         return null;
+    }
 
+    public List<OVChipkaart> findAll() {
+        ArrayList<OVChipkaart> kaarten = new ArrayList<>();
+        try{
+            String sqlQuery = "SELECT * FROM ov_chipkaart";
+            PreparedStatement st = conn.prepareStatement(sqlQuery);
+            ResultSet rs = st.executeQuery();
+
+            while(rs.next()){
+                int kaartnr = rs.getInt("adres_id");
+                Date geldig_tot = rs.getDate("postcode");
+                int klasse = rs.getInt("huisnummer");
+                float saldo = rs.getFloat("straat");
+                int reiziger_id = rs.getInt("woonplaats");
+
+                OVChipkaart newOVChipkaart = new OVChipkaart(kaartnr, geldig_tot, klasse, saldo, reiziger_id);
+                kaarten.add(newOVChipkaart);
+            }
+            return kaarten;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
