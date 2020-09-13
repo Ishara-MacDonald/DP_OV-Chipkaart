@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/S-Line/S3 - Ishara Uitwerkingen" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DP_OV-Chipkaart/Driver.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +63,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Driver" />
@@ -101,6 +112,10 @@
       <workItem from="1599978735051" duration="1748000" />
       <workItem from="1599980904791" duration="891000" />
       <workItem from="1600006627076" duration="6975000" />
+      <workItem from="1600013688155" duration="9000" />
+      <workItem from="1600016203381" duration="147000" />
+      <workItem from="1600020550613" duration="524000" />
+      <workItem from="1600022873777" duration="53000" />
     </task>
     <servers />
   </component>
@@ -117,6 +132,10 @@
     </state>
     <state x="432" y="164" key="#SQL_Dialects/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600012266638" />
     <state x="2135" y="203" key="#SQL_Dialects/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599229264358" />
+    <state x="561" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600022924141">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="561" y="307" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600022924141" />
     <state x="621" y="189" key="#com.intellij.ide.util.MemberChooser" timestamp="1600009719188">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -173,10 +192,10 @@
     </state>
     <state x="341" y="148" key="SettingsEditor/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1598685676310" />
     <state x="880" y="133" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599819042649" />
-    <state x="536" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1599924097343">
+    <state x="536" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1600013690692">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599924097343" />
+    <state x="536" y="330" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600013690692" />
     <state x="2244" y="359" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1599227404528" />
     <state x="613" y="340" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599816970467" />
     <state x="565" y="467" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1598685441131">
@@ -187,6 +206,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="570" y="272" key="extract.method.dialog/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599235914422" />
+    <state x="222" y="125" key="new project wizard" timestamp="1600022898539">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="222" y="125" key="new project wizard/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600022898539" />
     <state x="539" y="233" key="run.anything.popup" timestamp="1600011388353">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
