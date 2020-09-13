@@ -1,6 +1,7 @@
 //pgAdmin
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Driver {
@@ -45,7 +46,7 @@ public class Driver {
         String gbdatum = "1981-03-14";
         Reiziger sietske = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf(gbdatum));
         System.out.print("[Test] Eerst " + reizigers.size() + " reizigers, na ReizigerDAO.save() ");
-        rdao.save(sietske, null);
+        rdao.save(sietske);
         System.out.println(rdao.findAll().size() + " reizigers");
         System.out.println();
 
@@ -95,7 +96,7 @@ public class Driver {
         ReizigerDAO rdao = new ReizigerDAOPsql(connection);
         Reiziger newReiziger = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14"));
         Adres newAdres = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
-        rdao.save(newReiziger, newAdres);
+        rdao.save(newReiziger);
 
         // Haal alle reizigers op uit de database
         System.out.println("[Test] AdresDAO.findAll() geeft de volgende reizigers:");
@@ -134,24 +135,59 @@ public class Driver {
     /**
      * P4. OVChipkaart DAO: persistentie van een klasse
      *
-     * Deze methode test de CRUD-functionaliteit van de OVChipkaart DAO
+     * Deze methode test de CRUD-functionaliteit van de OVChipkaartDAO
      *
      * @throws SQLException
      */
     private static void testOVChipkaartDAO(OVChipkaartDAO ovdao){
         System.out.println("\n---------- Test OVChipkaartDAO -------------");
 
+        ReizigerDAO rdao = new ReizigerDAOPsql(connection);
+        Reiziger newReiziger = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14"));
+        OVChipkaart newOVChipkaart1 = new OVChipkaart(23, java.sql.Date.valueOf("2024-09-13"), 1, (float) 50.0, newReiziger);
+        OVChipkaart newOVChipkaart2 = new OVChipkaart(26, java.sql.Date.valueOf("2024-09-13"), 2, (float) 25.0, newReiziger);
+//        Adres newAdres = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
+        rdao.save(newReiziger);
+
+        ovdao.setRdao(rdao);
+
         // Haal alle reizigers op uit de database
-        System.out.println("[Test] AdresDAO.findAll() geeft de volgende reizigers:");
+        System.out.println("[Test] OVChipkaartDAO.findAll() geeft de volgende ov-chipkaarten:");
+        printOVChipkaartLoop(ovdao.findAll());
+        System.out.println();
 
-        System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", ovdao.findAll().size()));
+        System.out.printf("[Test] Eerst %s ov-chipkaarten, 2x na OVChipkaartDAO.save() ", ovdao.findAll().size());
+        ovdao.save(newOVChipkaart1);
+        ovdao.save(newOVChipkaart2);
+        System.out.printf("%s ov-chipkaarten", ovdao.findAll().size());
+        System.out.println("\n");
 
-        System.out.println("[Test] Systeem vind het volgende adres bij AdresDAO.findById(7):");
+        System.out.println("[Test] Systeem vind het volgende ov-chipkaart bij OVChipkaartDAO.findById(23):");
+        System.out.println(ovdao.findById(23));
+        System.out.println();
 
-        //System.out.println(String.format("[Test] AdresDAO.update() geeft de volgende resultaten:\nVoor de update: %s", ovdao.findById(7)));
+        //System.out.println(String.format("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s", ovdao.findById(7)));
 
-        System.out.println("[Test] AdresDAO.findByReiziger() geeft het volgende adres:");
+        System.out.println("[Test] OVChipkaartDAO.findByReiziger() geeft het volgende ov-chipkaart:");
+        printOVChipkaartLoop(ovdao.findByReiziger(newReiziger));
+        System.out.println();
 
-        System.out.print(String.format("[Test] Eerst %s adressen, na AdresDAO.save()", ovdao.findAll().size()));
+        System.out.println("[Test] OVChipkaartDAO.findByReiziger() na OVChipkaartDAO.delete()");
+        ovdao.delete(newOVChipkaart1);
+        printOVChipkaartLoop(ovdao.findByReiziger(newReiziger));
+        System.out.println();
+
+        System.out.printf("[Test] Eerst %s ov-chipkaarten, na OVChipkaartDAO.delete()", ovdao.findAll().size());
+        ovdao.delete(newOVChipkaart2);
+        System.out.printf(" %s ov-chipkaarten", ovdao.findAll().size());
+        System.out.println();
+
+        rdao.delete(rdao.findById(77));
+    }
+
+    public static void printOVChipkaartLoop(List<OVChipkaart> kaarten){
+        for(OVChipkaart ovChipkaart : kaarten){
+            System.out.println(ovChipkaart);
+        }
     }
 }

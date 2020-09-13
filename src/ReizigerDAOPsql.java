@@ -15,10 +15,10 @@ public class ReizigerDAOPsql implements ReizigerDAO {
     }
 
     // Hoe moet je een adres opslaan in save(Reiziger reiziger) ?
-    public boolean save(Reiziger reiziger, Adres adres){
+    public boolean save(Reiziger reiziger){
         try{
             // Create a SQL Query
-            String sqlQuery = "INSERT INTO reiziger(reiziger_id, voorletters, tussenvoegsel, achternaam, geboortedatum) VALUES (?, ?, ?, ?, ?)" ;
+            String sqlQuery = "INSERT INTO reiziger(reiziger_id, voorletters, tussenvoegsel, achternaam, geboortedatum) VALUES (?, ?, ?, ?, ?)";
 
             // Create a Statement
             PreparedStatement st = conn.prepareStatement(sqlQuery);
@@ -30,12 +30,6 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
             st.executeUpdate();
             st.close();
-
-            if( adao != null && adres != null ){
-                adao.save(adres);
-            }
-
-            reiziger.setAdres(adres);
             return true;
         }catch(Exception e){
             e.printStackTrace();

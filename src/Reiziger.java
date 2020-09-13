@@ -33,11 +33,16 @@ public class Reiziger {
     public void setGeboortedatum(Date geboortedatum) { this.geboortedatum = geboortedatum; }
     public void setAdres(Adres adres) { this.adres = adres; }
 
+    public void addOVKaart(OVChipkaart ovChipkaart){ kaarten.add(ovChipkaart); }
+    public void deleteOVKaart(OVChipkaart ovChipkaart){
+        kaarten.removeIf(kaart -> kaart.getKaart_nummer() == ovChipkaart.getKaart_nummer());
+    }
+
     @Override
     public String toString() {
-        String sString = String.format("Reiziger {#%s %s. %s %s, geb. %s}", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString());
+        String sString = String.format("Reiziger { #%s %s. %s %s, geb. %s }", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString());
         if(adres != null){
-            sString = String.format("Reiziger {#%s %s. %s %s, geb. %s, %s }", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString(), adres.toString());
+            sString = String.format("Reiziger { #%s %s. %s %s, geb. %s, %s }", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString(), adres.toString());
         }
         return sString;
     }
