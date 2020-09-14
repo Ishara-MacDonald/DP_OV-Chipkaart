@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/S-Line/S3 - Ishara Uitwerkingen" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-Line/S3 - Ishara Uitwerkingen" beforeDir="false" afterPath="$PROJECT_DIR$/S-Line/S3 - Ishara Uitwerkingen" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,17 +63,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Driver" />
@@ -116,6 +105,7 @@
       <workItem from="1600016203381" duration="147000" />
       <workItem from="1600020550613" duration="524000" />
       <workItem from="1600022873777" duration="53000" />
+      <workItem from="1600076418148" duration="2824000" />
     </task>
     <servers />
   </component>
