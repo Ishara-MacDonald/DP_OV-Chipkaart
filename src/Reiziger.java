@@ -25,6 +25,7 @@ public class Reiziger {
     public String getTussenvoegsel() { return tussenvoegsel; }
     public String getAchternaam() { return achternaam; }
     public Date getGeboortedatum() { return geboortedatum; }
+    public Adres getAdres() { return adres; }
 
     public void setId(int id) { this.id = id; }
     public void setVoorletters(String voorletters) { this.voorletters = voorletters; }
