@@ -166,7 +166,11 @@ public class Driver {
         System.out.println(ovdao.findById(23));
         System.out.println();
 
-        //System.out.println(String.format("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s", ovdao.findById(7)));
+        System.out.printf("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s%n", ovdao.findById(23));
+        newOVChipkaart1.setKlasse(2);
+        ovdao.update(newOVChipkaart1);
+        System.out.printf("Na de update: %s\n", ovdao.findById(23));
+        System.out.println();
 
         System.out.println("[Test] OVChipkaartDAO.findByReiziger() geeft het volgende ov-chipkaart:");
         printOVChipkaartLoop(ovdao.findByReiziger(newReiziger));

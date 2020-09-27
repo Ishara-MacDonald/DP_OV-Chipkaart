@@ -10,7 +10,4 @@ interface OVChipkaartDAO {
     public OVChipkaart findById(int id);
     public List<OVChipkaart> findByReiziger(Reiziger reiziger);
     public List<OVChipkaart> findAll();
-
-
-
 }

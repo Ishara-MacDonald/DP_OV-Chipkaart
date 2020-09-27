@@ -5,6 +5,7 @@ import java.util.List;
 public class ReizigerDAOPsql implements ReizigerDAO {
     private Connection conn;
     private AdresDAO adao;
+    private OVChipkaartDAO ovdao;
 
     public ReizigerDAOPsql(Connection conn){
         this.conn = conn;
@@ -13,10 +14,15 @@ public class ReizigerDAOPsql implements ReizigerDAO {
     public void setAdao(AdresDAO adao) {
         this.adao = adao;
     }
+    public void setAdao(OVChipkaartDAO ovdao) {
+        this.ovdao = ovdao;
+    }
 
     // Hoe moet je een adres opslaan in save(Reiziger reiziger) ?
     public boolean save(Reiziger reiziger){
         try{
+            List<OVChipkaart> newKaarten = reiziger.getKaarten();
+            Adres newAdres = reiziger.getAdres();
             // Create a SQL Query
             String sqlQuery = "INSERT INTO reiziger(reiziger_id, voorletters, tussenvoegsel, achternaam, geboortedatum) VALUES (?, ?, ?, ?, ?)";
 
@@ -30,8 +36,13 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
             st.executeUpdate();
             st.close();
-            if( reiziger.getAdres() != null){
-                adao.save(reiziger.getAdres());
+            if( newAdres != null){
+                adao.save(newAdres);
+            }
+            if(!newKaarten.isEmpty()){
+                for(OVChipkaart kaart : newKaarten){
+                    ovdao.save(kaart);
+                }
             }
 
             return true;
@@ -43,6 +54,8 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
     public boolean update(Reiziger reiziger){
         try{
+            List<OVChipkaart> newKaarten = reiziger.getKaarten();
+            Adres newAdres = reiziger.getAdres();
             // Create a SQL Query
             String sqlQuery = "UPDATE reiziger SET voorletters = ?, tussenvoegsel = ?, achternaam = ?, geboortedatum = ? WHERE reiziger_id = ?";
 
@@ -58,10 +71,16 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             st.close();
 
             if( reiziger.getAdres() != null){
-                if(adao.findById(reiziger.getAdres().getId()) != null){
-                    adao.update(reiziger.getAdres());
+                if(adao.findById(newAdres.getId()) != null){
+                    adao.update(newAdres);
+                }else{ adao.save(newAdres); }
+            }
+            if(!newKaarten.isEmpty()){
+                for(OVChipkaart kaart : newKaarten){
+                    if(adao.findById(kaart.getId()) != null){
+                        ovdao.update(kaart);
+                    }else{ ovdao.save(kaart); }
                 }
-                adao.save(reiziger.getAdres());
             }
 
             return true;
@@ -73,6 +92,8 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
     public boolean delete(Reiziger reiziger){
         try{
+            List<OVChipkaart> newKaarten = reiziger.getKaarten();
+            Adres newAdres = reiziger.getAdres();
             // Create a SQL Query
             String sqlQuery = "DELETE FROM reiziger WHERE reiziger_id = ?";
 
@@ -80,8 +101,17 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             PreparedStatement st = conn.prepareStatement(sqlQuery);
             st.setInt(1, reiziger.getId());
 
-            if( reiziger.getAdres() != null){
-                adao.delete(reiziger.getAdres());
+            if( newAdres != null){
+                if(ovdao.findById(newAdres.getId()) != null) {
+                    adao.delete(newAdres);
+                }
+            }
+            if(!reiziger.getKaarten().isEmpty()){
+                for(OVChipkaart kaart : newKaarten){
+                    if(ovdao.findById(kaart.getId()) != null){
+                        ovdao.delete(kaart);
+                    }
+                }
             }
 
             st.executeUpdate();
@@ -102,11 +132,17 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             ResultSet rs = st.executeQuery();
 
             if(rs.next()){
-                return new Reiziger(rs.getInt("reiziger_id"),
+                Reiziger newReiziger = new Reiziger(rs.getInt("reiziger_id"),
                         rs.getString("voorletters"),
                         rs.getString("tussenvoegsel"),
                         rs.getString("achternaam"),
                         rs.getDate("geboortedatum"));
+
+                if( newReiziger.getAdres() != null){
+                    newReiziger.setAdres(adao.findByReiziger(newReiziger));
+                }
+
+                return newReiziger;
             }
         }catch(Exception e){
             e.printStackTrace();
