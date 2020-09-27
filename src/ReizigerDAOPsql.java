@@ -36,13 +36,9 @@ public class ReizigerDAOPsql implements ReizigerDAO {
 
             st.executeUpdate();
             st.close();
-            if( newAdres != null){
-                adao.save(newAdres);
-            }
+            if( newAdres != null){ adao.save(newAdres); }
             if(!newKaarten.isEmpty()){
-                for(OVChipkaart kaart : newKaarten){
-                    ovdao.save(kaart);
-                }
+                for(OVChipkaart kaart : newKaarten){ ovdao.save(kaart); }
             }
 
             return true;
