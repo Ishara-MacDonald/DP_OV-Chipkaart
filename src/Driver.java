@@ -230,6 +230,7 @@ public class Driver {
         OVChipkaart testKaart = ovdao.findById(35283);
 
         System.out.println("\n---------- Test ProductDAO -------------");
+        System.out.println();
 
         System.out.println("[Test] ProductDAO.findAll() geeft de volgende ov-chipkaarten:");
         printProductLoop(pdao.findAll());

@@ -4,11 +4,6 @@
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OVChipkaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductDOAPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductDOAPsql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reiziger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reiziger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +115,7 @@
       <workItem from="1601208910045" duration="12078000" />
       <workItem from="1601270080817" duration="4423000" />
       <workItem from="1601280293189" duration="9176000" />
-      <workItem from="1601291851867" duration="2685000" />
+      <workItem from="1601291851867" duration="3100000" />
     </task>
     <servers />
   </component>
