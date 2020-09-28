@@ -41,19 +41,34 @@ WHERE mnr IN (SELECT cursist
 -- Geef de nummers van alle medewerkers die niet aan de afdeling 'OPLEIDINGEN'
 -- zijn verbonden.
 -- DROP VIEW IF EXISTS s5_2; CREATE OR REPLACE VIEW s5_2 AS                                                     -- [TEST]
-
+SELECT mnr
+FROM medewerkers
+WHERE mnr NOT IN (SELECT hoofd
+            FROM afdelingen
+            WHERE naam = 'OPLEIDINGEN');
 
 -- S5.3.
 -- Geef de nummers van alle medewerkers die de Java-cursus niet hebben
 -- gevolgd.
 -- DROP VIEW IF EXISTS s5_3; CREATE OR REPLACE VIEW s5_3 AS                                                     -- [TEST]
-
+SELECT mnr
+FROM medewerkers
+WHERE mnr NOT IN (SELECT cursist
+        FROM inschrijvingen
+        WHERE cursus = 'JAV');
 
 -- S5.4.
 -- Welke medewerkers (naam) hebben ondergeschikten? En welke niet? (Je mag twee
 -- queries gebruiken.)
 -- DROP VIEW IF EXISTS s5_4; CREATE OR REPLACE VIEW s5_4 AS                                                     -- [TEST]
-
+SELECT naam
+FROM medewerkers
+WHERE mnr EXISTS (SELECT DISTINCT chef
+        FROM medewerkers);
+SELECT naam
+FROM medewerkers
+WHERE mnr NOT EXISTS (SELECT DISTINCT chef
+        FROM medewerkers);
 
 -- S5.5.
 -- Geef cursuscode en begindatum van alle uitvoeringen van programmeercursussen
