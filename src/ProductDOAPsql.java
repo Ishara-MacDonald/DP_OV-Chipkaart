@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ProductDOAPsql implements ProductDAO {
@@ -22,22 +23,36 @@ public class ProductDOAPsql implements ProductDAO {
             String sqlQuery = "INSERT INTO product(product_nummer, naam, beschrijving, prijs) VALUES (?, ?, ?, ?)";
 
             // Create a Statement
-            PreparedStatement st = conn.prepareStatement(sqlQuery);
-            st.setInt(1, product.getId());
-            st.setString(2, product.getNaam());
-            st.setString(3, product.getBeschrijving());
-            st.setFloat(4, product.getPrijs());
+            PreparedStatement pStOne = conn.prepareStatement(sqlQuery);
+            pStOne.setInt(1, product.getId());
+            pStOne.setString(2, product.getNaam());
+            pStOne.setString(3, product.getBeschrijving());
+            pStOne.setFloat(4, product.getPrijs());
+
+            pStOne.executeUpdate();
+            pStOne.close();
 
             if(!kaarten.isEmpty()){
                 for(OVChipkaart kaart : kaarten){
-                    product.addKaart(kaart);
+                    System.out.println("hey");
                     ovdao.save(kaart);
                     ovdao.findById(kaart.getId()).addProduct(product);
+
+                    String queryOvChipkaartProduct = "INSERT INTO ov_chipkaart_product(kaart_nummer, product_nummer, status, last_update)" +
+                            "VALUES (?, ?, ?, ?)";
+
+                    PreparedStatement pStTwo= conn.prepareStatement(queryOvChipkaartProduct);
+
+                    pStTwo.setInt(1, kaart.getId());
+                    pStTwo.setInt(2, product.getId());
+                    pStTwo.setString(3, "gekocht");
+                    pStTwo.setDate(4, Date.valueOf(LocalDate.now()));
+
+                    pStTwo.executeUpdate();
+                    pStTwo.close();
                 }
             }
 
-            st.executeUpdate();
-            st.close();
             return true;
         }catch(Exception e){
             e.printStackTrace();
@@ -46,7 +61,7 @@ public class ProductDOAPsql implements ProductDAO {
     }
 
     public boolean update(Product product) {
-        try{
+        /*try{
             // Create a SQL Query
             String sqlQuery = "UPDATE product SET naam = ?, beschrijving = ?, prijs = ? WHERE product_nummer = ?";
 
@@ -62,19 +77,22 @@ public class ProductDOAPsql implements ProductDAO {
             return true;
         }catch(Exception e){
             e.printStackTrace();
-        }
+        }*/
         return false;
     }
 
     public boolean delete(Product product) {
         try{
             List<OVChipkaart> kaarten = product.getKaarten();
+
             // Create a SQL Query
-            String sqlQuery = "DELETE FROM product WHERE product_nummer = ?";
+            String sqlQuery = "DELETE FROM ov_chipkaart_product WHERE product_nummer = ?; DELETE FROM product WHERE product_nummer = ?";
 
             // Create a Statement
             PreparedStatement st = conn.prepareStatement(sqlQuery);
             st.setInt(1, product.getId());
+            st.setInt(2, product.getId());
+
             st.executeUpdate();
             st.close();
 
@@ -82,9 +100,9 @@ public class ProductDOAPsql implements ProductDAO {
                 for(OVChipkaart kaart : kaarten){
                     product.deleteCard(kaart);
                     ovdao.findById(kaart.getId()).deleteProduct(product);
+                    ovdao.delete(kaart);
                 }
             }
-
             return true;
         }catch(Exception e){
             e.printStackTrace();

@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductDOAPsql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OVChipkaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OVChipkaartDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OVChipkaartDAOPsql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductDOAPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductDOAPsql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reiziger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reiziger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReizigerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReizigerDAOPsql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,17 +68,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Driver" />
@@ -129,6 +118,7 @@
       <workItem from="1600244806484" duration="1990000" />
       <workItem from="1600438004582" duration="108000" />
       <workItem from="1601208910045" duration="12078000" />
+      <workItem from="1601270080817" duration="4423000" />
     </task>
     <servers />
   </component>
@@ -161,42 +151,42 @@
     <state x="567" y="315" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1599315104968" />
     <state x="2262" y="310" key="FileChooserDialogImpl/0.0.1680.1010/1680.48.1768.952@1680.48.1768.952" timestamp="1600166881712" />
     <state x="648" y="324" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599819015573" />
-    <state width="1637" height="324" key="GridCell.Tab.0.bottom" timestamp="1601217658294">
+    <state width="1637" height="336" key="GridCell.Tab.0.bottom" timestamp="1601274708692">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="324" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601217658294" />
+    <state width="1637" height="336" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708692" />
     <state width="1877" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
-    <state width="1637" height="324" key="GridCell.Tab.0.center" timestamp="1601217658294">
+    <state width="1637" height="336" key="GridCell.Tab.0.center" timestamp="1601274708692">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="324" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601217658294" />
+    <state width="1637" height="336" key="GridCell.Tab.0.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708692" />
     <state width="1877" height="181" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
-    <state width="1637" height="324" key="GridCell.Tab.0.left" timestamp="1601217658294">
+    <state width="1637" height="336" key="GridCell.Tab.0.left" timestamp="1601274708692">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="324" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601217658294" />
+    <state width="1637" height="336" key="GridCell.Tab.0.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708692" />
     <state width="1877" height="181" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916137" />
-    <state width="1637" height="324" key="GridCell.Tab.0.right" timestamp="1601217658294">
+    <state width="1637" height="336" key="GridCell.Tab.0.right" timestamp="1601274708692">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="324" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601217658294" />
+    <state width="1637" height="336" key="GridCell.Tab.0.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708692" />
     <state width="1877" height="181" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599845916138" />
-    <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1600013619782">
+    <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1601274708693">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="336" key="GridCell.Tab.1.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600013619782" />
-    <state width="1637" height="336" key="GridCell.Tab.1.center" timestamp="1600013619782">
+    <state width="1637" height="336" key="GridCell.Tab.1.bottom/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708693" />
+    <state width="1637" height="336" key="GridCell.Tab.1.center" timestamp="1601274708693">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="336" key="GridCell.Tab.1.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600013619782" />
-    <state width="1637" height="336" key="GridCell.Tab.1.left" timestamp="1600013619781">
+    <state width="1637" height="336" key="GridCell.Tab.1.center/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708693" />
+    <state width="1637" height="336" key="GridCell.Tab.1.left" timestamp="1601274708692">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="336" key="GridCell.Tab.1.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600013619781" />
-    <state width="1637" height="336" key="GridCell.Tab.1.right" timestamp="1600013619782">
+    <state width="1637" height="336" key="GridCell.Tab.1.left/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708692" />
+    <state width="1637" height="336" key="GridCell.Tab.1.right" timestamp="1601274708693">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="336" key="GridCell.Tab.1.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1600013619782" />
+    <state width="1637" height="336" key="GridCell.Tab.1.right/0.0.1680.1010/1680.48.1768.952@0.0.1680.1010" timestamp="1601274708693" />
     <state x="420" y="240" key="IDE.errors.dialog" timestamp="1599981214646">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>

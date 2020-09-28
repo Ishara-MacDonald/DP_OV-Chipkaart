@@ -60,9 +60,6 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
             st.executeUpdate();
             st.close();
 
-            reiziger.deleteOVKaart(ovChipkaart);
-            reiziger.addOVKaart(ovChipkaart);
-
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -82,8 +79,6 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
 
             st.executeUpdate();
             st.close();
-
-            reiziger.deleteOVKaart(ovChipkaart);
 
             return true;
         }catch (Exception e){

@@ -14,7 +14,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
     public void setAdao(AdresDAO adao) {
         this.adao = adao;
     }
-    public void setAdao(OVChipkaartDAO ovdao) {
+    public void setOVdao(OVChipkaartDAO ovdao) {
         this.ovdao = ovdao;
     }
 
@@ -102,13 +102,12 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                     adao.delete(newAdres);
                 }
             }
-            if(!reiziger.getKaarten().isEmpty()){
+            if(!newKaarten.isEmpty()){
                 for(OVChipkaart kaart : newKaarten){
-                    if(ovdao.findById(kaart.getId()) != null){
-                        ovdao.delete(kaart);
-                    }
+                    ovdao.delete(kaart);
                 }
             }
+            reiziger.deleteOVKaarten();
 
             st.executeUpdate();
             st.close();

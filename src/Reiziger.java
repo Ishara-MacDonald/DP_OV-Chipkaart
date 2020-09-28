@@ -37,6 +37,7 @@ public class Reiziger {
     public void setGeboortedatum(Date geboortedatum) { this.geboortedatum = geboortedatum; }
     public void setAdres(Adres adres) { this.adres = adres; }
 
+    public void deleteOVKaarten(){kaarten.clear();}
     public void addOVKaart(OVChipkaart ovChipkaart){ kaarten.add(ovChipkaart); }
     public void deleteOVKaart(OVChipkaart ovChipkaart){
         kaarten.removeIf(kaart -> kaart.getId() == ovChipkaart.getId());
