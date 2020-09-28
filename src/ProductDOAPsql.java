@@ -115,24 +115,32 @@ public class ProductDOAPsql implements ProductDAO {
         try{
             List<OVChipkaart> kaarten = product.getKaarten();
 
-            // Create a SQL Query
-            String sqlQuery = "DELETE FROM ov_chipkaart_product WHERE product_nummer = ?; DELETE FROM product WHERE product_nummer = ?";
-
-            // Create a Statement
-            PreparedStatement st = conn.prepareStatement(sqlQuery);
-            st.setInt(1, product.getId());
-            st.setInt(2, product.getId());
-
-            st.executeUpdate();
-            st.close();
-
             if(!kaarten.isEmpty()){
+                // Create a SQL Query
+                String queryDeleteOvProduct = "DELETE FROM ov_chipkaart_product WHERE product_nummer = ?;";
+
+                // Create a Statement
+                PreparedStatement prepStatementOne = conn.prepareStatement(queryDeleteOvProduct);
+
+                prepStatementOne.setInt(1, product.getId());
+
+                prepStatementOne.executeUpdate();
+                prepStatementOne.close();
+
                 for(OVChipkaart kaart : kaarten){
                     product.deleteCard(kaart);
                     ovdao.findById(kaart.getId()).deleteProduct(product);
                     ovdao.delete(kaart);
                 }
             }
+
+            String queryDeleteProduct = "DELETE FROM product WHERE product_nummer = ?;";
+
+            PreparedStatement prepStatementTwo = conn.prepareStatement(queryDeleteProduct);
+            prepStatementTwo.setInt(1, product.getId());
+
+            prepStatementTwo.executeUpdate();
+            prepStatementTwo.close();
             return true;
         }catch(Exception e){
             e.printStackTrace();
@@ -189,6 +197,7 @@ public class ProductDOAPsql implements ProductDAO {
     }
 
     public List<Product> findAll() {
+        
         return null;
     }
 }

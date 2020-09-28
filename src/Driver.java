@@ -207,9 +207,11 @@ public class Driver {
         //Setup Reiziger, OVChipkaart en Product.
         ReizigerDAO rdao = new ReizigerDAOPsql(connection);
         OVChipkaartDAO ovdao = new OVChipkaartDAOPsql(connection);
+        AdresDAO adao = new AdresDAOPsql(connection);
         pdao.setOVdao(ovdao);
         ovdao.setRdao(rdao);
         rdao.setOVdao(ovdao);
+        rdao.setAdao(adao);
 
         Reiziger newReiziger = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14"));
 
@@ -244,7 +246,7 @@ public class Driver {
         System.out.println("[Test] ProductDAO.delete() geeft het volgende resultaat:");
         System.out.println(pdao.delete(productOne));
 
-        System.out.println(rdao.delete(newReiziger));
+        rdao.delete(newReiziger);
 
 
         /*System.out.println("[Test] OVChipkaartDAO.findAll() geeft de volgende ov-chipkaarten:");

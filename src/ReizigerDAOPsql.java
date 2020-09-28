@@ -144,7 +144,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             PreparedStatement st = conn.prepareStatement(sqlQuery);
             st.setDate(1, Date.valueOf(datum));
 
-            return loopThroughDataBase(st.executeQuery());
+            return loopThroughReizigers(st.executeQuery());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -156,14 +156,14 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             String sqlQuery = "SELECT * FROM reiziger";
             PreparedStatement st = conn.prepareStatement(sqlQuery);
 
-            return loopThroughDataBase(st.executeQuery());
+            return loopThroughReizigers(st.executeQuery());
         }catch(Exception e){
             e.printStackTrace();
         }
         return null;
     }
 
-    public List<Reiziger> loopThroughDataBase(ResultSet rs){
+    public List<Reiziger> loopThroughReizigers(ResultSet rs){
         ArrayList<Reiziger> reizigers = new ArrayList<>();
         try{
             while(rs.next()){
