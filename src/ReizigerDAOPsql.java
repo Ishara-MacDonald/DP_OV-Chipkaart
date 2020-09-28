@@ -18,7 +18,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
         this.ovdao = ovdao;
     }
 
-    // Hoe moet je een adres opslaan in save(Reiziger reiziger) ?
+    // Hoe moet je een adres opslaan in save(Reiziger reiziger)?
     public boolean save(Reiziger reiziger){
         try{
             List<OVChipkaart> newKaarten = reiziger.getKaarten();

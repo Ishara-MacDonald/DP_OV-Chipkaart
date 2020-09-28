@@ -1,3 +1,5 @@
+import jdk.jshell.spi.ExecutionControlProvider;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -37,19 +39,7 @@ public class ProductDOAPsql implements ProductDAO {
                     System.out.println("hey");
                     ovdao.save(kaart);
                     ovdao.findById(kaart.getId()).addProduct(product);
-
-                    String queryOvChipkaartProduct = "INSERT INTO ov_chipkaart_product(kaart_nummer, product_nummer, status, last_update)" +
-                            "VALUES (?, ?, ?, ?)";
-
-                    PreparedStatement pStTwo= conn.prepareStatement(queryOvChipkaartProduct);
-
-                    pStTwo.setInt(1, kaart.getId());
-                    pStTwo.setInt(2, product.getId());
-                    pStTwo.setString(3, "gekocht");
-                    pStTwo.setDate(4, Date.valueOf(LocalDate.now()));
-
-                    pStTwo.executeUpdate();
-                    pStTwo.close();
+                    saveCardForProduct(kaart, product);
                 }
             }
 
@@ -61,23 +51,61 @@ public class ProductDOAPsql implements ProductDAO {
     }
 
     public boolean update(Product product) {
-        /*try{
+        try{
+            List<OVChipkaart> kaarten = product.getKaarten();
             // Create a SQL Query
-            String sqlQuery = "UPDATE product SET naam = ?, beschrijving = ?, prijs = ? WHERE product_nummer = ?";
+            String queryDeleteOvChipKaartProduct = "DELETE FROM ov_chipkaart_product WHERE product_nummer = ?";
+
+            PreparedStatement prepStatementOne = conn.prepareStatement(queryDeleteOvChipKaartProduct);
+
+            prepStatementOne.setInt(1, product.getId());
+
+            prepStatementOne.executeUpdate();
+            prepStatementOne.close();
+
+            String queryUpdateProduct = "UPDATE product SET naam = ?, beschrijving = ?, prijs = ? WHERE product_nummer = ?";
 
             // Create a Statement
-            PreparedStatement st = conn.prepareStatement(sqlQuery);
-            st.setString(1, product.getNaam());
-            st.setString(2, product.getBeschrijving());
-            st.setFloat(3,  product.getPrijs());
-            st.setInt(4,product.getId());
+            PreparedStatement prepStatementTwo = conn.prepareStatement(queryUpdateProduct);
+            prepStatementTwo.setString(1, product.getNaam());
+            prepStatementTwo.setString(2, product.getBeschrijving());
+            prepStatementTwo.setFloat(3,  product.getPrijs());
+            prepStatementTwo.setInt(4, product.getId());
 
-            st.executeUpdate();
-            st.close();
+            prepStatementTwo.executeUpdate();
+            prepStatementTwo.close();
+
+            if(!kaarten.isEmpty()){
+                for(OVChipkaart kaart: kaarten){
+                    saveCardForProduct(kaart, product);
+                }
+            }
             return true;
         }catch(Exception e){
             e.printStackTrace();
-        }*/
+        }
+        return false;
+    }
+
+    private boolean saveCardForProduct(OVChipkaart kaart, Product product){
+        try{
+            String queryAddOVChipkaartProduct = "INSERT INTO ov_chipkaart_product(kaart_nummer, product_nummer, status, last_update)" +
+                    "VALUES (?, ?, ?, ?)";
+
+            PreparedStatement pStTwo= conn.prepareStatement(queryAddOVChipkaartProduct);
+
+            pStTwo.setInt(1, kaart.getId());
+            pStTwo.setInt(2, product.getId());
+            pStTwo.setString(3, "gekocht");
+            pStTwo.setDate(4, Date.valueOf(LocalDate.now()));
+
+            pStTwo.executeUpdate();
+            pStTwo.close();
+
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return false;
     }
 
