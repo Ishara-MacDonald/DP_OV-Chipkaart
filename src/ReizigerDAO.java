@@ -3,6 +3,7 @@ import java.util.List;
 
 interface ReizigerDAO {
     public void setAdao(AdresDAO adao);
+    public void setOVdao(OVChipkaartDAO ovdao);
 
     public boolean save(Reiziger reiziger);
     public boolean update(Reiziger reiziger);

@@ -12,9 +12,10 @@ public class Driver {
         try{
             // Get a connection to database
             connection = DriverManager.getConnection("jdbc:postgresql://localhost/ovchip", "postgres", "PostGres");
-            testReizigerDAO(new ReizigerDAOPsql(connection));
-            testAdresDAO(new AdresDAOPsql(connection));
-            testOVChipkaartDAO(new OVChipkaartDAOPsql(connection));
+//            testReizigerDAO(new ReizigerDAOPsql(connection));
+//            testAdresDAO(new AdresDAOPsql(connection));
+//            testOVChipkaartDAO(new OVChipkaartDAOPsql(connection));
+            testProductDAO(new ProductDOAPsql(connection));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -166,7 +167,11 @@ public class Driver {
         System.out.println(ovdao.findById(23));
         System.out.println();
 
-        //System.out.println(String.format("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s", ovdao.findById(7)));
+        System.out.printf("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s%n", ovdao.findById(23));
+        newOVChipkaart1.setKlasse(2);
+        ovdao.update(newOVChipkaart1);
+        System.out.printf("Na de update: %s\n", ovdao.findById(23));
+        System.out.println();
 
         System.out.println("[Test] OVChipkaartDAO.findByReiziger() geeft het volgende ov-chipkaart:");
         printOVChipkaartLoop(ovdao.findByReiziger(newReiziger));
@@ -188,6 +193,92 @@ public class Driver {
     public static void printOVChipkaartLoop(List<OVChipkaart> kaarten){
         for(OVChipkaart ovChipkaart : kaarten){
             System.out.println(ovChipkaart);
+        }
+    }
+
+    /**
+     * P4. Product DAO: persistentie van een klasse
+     *
+     * Deze methode test de CRUD-functionaliteit van de ProductDAO
+     *
+     * @throws SQLException
+     */
+    private static void testProductDAO(ProductDAO pdao){
+        System.out.println("\n---------- Test ProductDAO -------------");
+
+        ReizigerDAO rdao = new ReizigerDAOPsql(connection);
+        OVChipkaartDAO ovdao = new OVChipkaartDAOPsql(connection);
+        pdao.setOVdao(ovdao);
+        ovdao.setRdao(rdao);
+        rdao.setOVdao(ovdao);
+
+        Reiziger newReiziger = new Reiziger(77, "S", "", "Boers", java.sql.Date.valueOf("1981-03-14"));
+
+        OVChipkaart newOVChipkaart1 = new OVChipkaart(33, java.sql.Date.valueOf("2024-09-13"), 1, (float) 50.0, newReiziger);
+        OVChipkaart newOVChipkaart2 = new OVChipkaart(30, java.sql.Date.valueOf("2024-09-13"), 2, (float) 25.0, newReiziger);
+//        Adres newAdres = new Adres(7, "3455XD", "10", "de Landlaan","Utrecht", 77);
+        rdao.save(newReiziger);
+        newReiziger.addOVKaart(newOVChipkaart1);
+        newReiziger.addOVKaart(newOVChipkaart2);
+
+        // Haal alle reizigers op uit de database
+        Product productOne = new Product(25, "StudentenOV", "OV Product voor Studenten", 25.00f);
+
+        productOne.addKaart(newOVChipkaart1);
+        productOne.addKaart(newOVChipkaart2);
+
+        System.out.println("[Test] ProductDAO.save() geeft het volgende resultaat:");
+        System.out.println(pdao.save(productOne));
+        System.out.println();
+
+//        System.out.printf("[Test] ProductDAO.update() geeft de volgende resultaten:\nVoor de update: %s%n", pdao.findById(25));
+//        productOne.setNaam("Studenten Product");
+//        pdao.update(productOne);
+//        System.out.printf("Na de update: %s\n", pdao.findById(25));
+//        System.out.println();
+
+        System.out.println("[Test] ProductDAO.delete() geeft het volgende resultaat:");
+        System.out.println(pdao.delete(productOne));
+
+        System.out.println(rdao.delete(newReiziger));
+
+
+        /*System.out.println("[Test] OVChipkaartDAO.findAll() geeft de volgende ov-chipkaarten:");
+        printProductLoop(pdao.findAll());
+        System.out.println();
+
+        System.out.printf("[Test] Eerst %s ov-chipkaarten, 2x na OVChipkaartDAO.save() ", pdao.findAll().size());
+        System.out.printf("%s ov-chipkaarten", pdao.findAll().size());
+        System.out.println("\n");
+
+        System.out.println("[Test] Systeem vind het volgende ov-chipkaart bij OVChipkaartDAO.findById(23):");
+        System.out.println();
+
+        System.out.printf("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s%n", pdao.findById(23));
+//        pdao.update(newOVChipkaart1);
+        System.out.printf("Na de update: %s\n", pdao.findById(23));
+        System.out.println();
+
+        System.out.println("[Test] OVChipkaartDAO.findByReiziger() geeft het volgende ov-chipkaart:");
+//        printOVChipkaartLoop(pdao.findByReiziger(newReiziger));
+        System.out.println();
+
+        System.out.println("[Test] OVChipkaartDAO.findByReiziger() na OVChipkaartDAO.delete()");
+//        pdao.delete(newOVChipkaart1);
+//        printOVChipkaartLoop(pdao.findByReiziger(newReiziger));
+        System.out.println();
+
+        System.out.printf("[Test] Eerst %s ov-chipkaarten, na OVChipkaartDAO.delete()", pdao.findAll().size());
+//        pdao.delete(newOVChipkaart2);
+        System.out.printf(" %s ov-chipkaarten", pdao.findAll().size());
+        System.out.println();
+
+//        rdao.delete(rdao.findById(77));*/
+    }
+
+    public static void printProductLoop(List<Product> producten){
+        for(Product product : producten){
+            System.out.println(product);
         }
     }
 }

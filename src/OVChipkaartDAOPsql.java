@@ -26,7 +26,7 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
 
             // Create a Statement
             PreparedStatement st = conn.prepareStatement(sqlQuery);
-            st.setInt(1, ovChipkaart.getKaart_nummer());
+            st.setInt(1, ovChipkaart.getId());
             st.setDate(2, (java.sql.Date) ovChipkaart.getGeldig_tot());
             st.setInt(3, ovChipkaart.getKlasse());
             st.setFloat(4, ovChipkaart.getSaldo());
@@ -55,13 +55,10 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
             st.setInt(2, ovChipkaart.getKlasse());
             st.setFloat(3, ovChipkaart.getSaldo());
             st.setInt(4, reiziger.getId());
-            st.setInt(5, ovChipkaart.getKaart_nummer());
+            st.setInt(5, ovChipkaart.getId());
 
             st.executeUpdate();
             st.close();
-
-            reiziger.deleteOVKaart(ovChipkaart);
-            reiziger.addOVKaart(ovChipkaart);
 
             return true;
         }catch (Exception e){
@@ -78,12 +75,10 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
 
             // Create a Statement
             PreparedStatement st = conn.prepareStatement(sqlQuery);
-            st.setInt(1, ovChipkaart.getKaart_nummer());
+            st.setInt(1, ovChipkaart.getId());
 
             st.executeUpdate();
             st.close();
-
-            reiziger.deleteOVKaart(ovChipkaart);
 
             return true;
         }catch (Exception e){
