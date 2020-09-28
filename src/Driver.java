@@ -209,6 +209,7 @@ public class Driver {
         OVChipkaartDAO ovdao = new OVChipkaartDAOPsql(connection);
         AdresDAO adao = new AdresDAOPsql(connection);
         pdao.setOVdao(ovdao);
+        pdao.setRdao(rdao);
         ovdao.setRdao(rdao);
         rdao.setOVdao(ovdao);
         rdao.setAdao(adao);
@@ -226,7 +227,13 @@ public class Driver {
         productOne.addKaart(newOVChipkaart1);
         productOne.addKaart(newOVChipkaart2);
 
+        OVChipkaart testKaart = ovdao.findById(35283);
+
         System.out.println("\n---------- Test ProductDAO -------------");
+
+        System.out.println("[Test] ProductDAO.findAll() geeft de volgende ov-chipkaarten:");
+        printProductLoop(pdao.findAll());
+        System.out.println();
 
         System.out.println("[Test] ProductDAO.save() geeft het volgende resultaat:");
         System.out.println(pdao.save(productOne));
@@ -239,8 +246,11 @@ public class Driver {
         System.out.println();
 
         System.out.println("[Test] Systeem vind de volgende ov-chipkaarten bij ProductDAO.findByOVChipkaart(33)");
-        OVChipkaart testKaart = ovdao.findById(35283);
         printProductLoop(pdao.findByOVChipkaart(testKaart));
+        System.out.println();
+
+        System.out.println("[Test] Systeem vind de volgende ov-chipkaarten bij ProductDAO.findByOVChipkaart(33)");
+        System.out.println(testKaart);
         System.out.println();
 
         System.out.println("[Test] ProductDAO.delete() geeft het volgende resultaat:");
@@ -249,11 +259,7 @@ public class Driver {
         rdao.delete(newReiziger);
 
 
-        /*System.out.println("[Test] OVChipkaartDAO.findAll() geeft de volgende ov-chipkaarten:");
-        printProductLoop(pdao.findAll());
-        System.out.println();
-
-        System.out.printf("[Test] Eerst %s ov-chipkaarten, 2x na OVChipkaartDAO.save() ", pdao.findAll().size());
+        /*System.out.printf("[Test] Eerst %s ov-chipkaarten, 2x na OVChipkaartDAO.save() ", pdao.findAll().size());
         System.out.printf("%s ov-chipkaarten", pdao.findAll().size());
         System.out.println("\n");
 

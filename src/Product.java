@@ -32,8 +32,14 @@ public class Product {
         kaarten.removeIf(kaart -> kaart.getId() == ovChipkaart.getId());
     }
 
-    @Override
     public String toString() {
-        return String.format("Product { #%s, naam: %s, beschrijving: %s, prijs: %s }", id, naam, beschrijving, prijs);
+        String sString = String.format("Product { #%s, naam: %s, beschrijving: %s, prijs: %s", id, naam, beschrijving, prijs);
+
+        for(OVChipkaart kaart : kaarten){
+            sString += ",\n   " + kaart;
+        }
+        sString += " }";
+
+        return sString;
     }
 }

@@ -13,12 +13,14 @@ public class ProductDOAPsql implements ProductDAO {
 
     private Connection conn;
     private OVChipkaartDAO ovdao;
+    private ReizigerDAO rdao;
 
     public ProductDOAPsql(Connection conn){
         this.conn = conn;
     }
 
     public void setOVdao(OVChipkaartDAO ovdao) { this.ovdao = ovdao; }
+    public void setRdao(ReizigerDAO rdao) { this.rdao = rdao; }
 
     public boolean save(Product product) {
         try{
@@ -36,13 +38,12 @@ public class ProductDOAPsql implements ProductDAO {
             pStOne.executeUpdate();
             pStOne.close();
 
-            if(!kaarten.isEmpty()){
-                for(OVChipkaart kaart : kaarten){
-                    System.out.println("hey");
-                    ovdao.save(kaart);
-                    ovdao.findById(kaart.getId()).addProduct(product);
-                    saveCardForProduct(kaart, product);
-                }
+
+            for(OVChipkaart kaart : kaarten){
+                System.out.println("hey");
+                ovdao.save(kaart);
+                ovdao.findById(kaart.getId()).addProduct(product);
+                saveCardForProduct(kaart, product);
             }
 
             return true;
@@ -200,11 +201,37 @@ public class ProductDOAPsql implements ProductDAO {
         try{
             List<Product> producten = new ArrayList<>();
 
-            String queryGetProducts = "SELECT product_nummer, naam, beschrijving, prijs" +
-                    "FROM product";
+            String queryGetProducts = "SELECT * FROM product";
 
-            
+            PreparedStatement st = conn.prepareStatement(queryGetProducts);
+            ResultSet resultSetProducts = st.executeQuery();
+//            product_nummer, naam, beschrijving, prijs
+            while(resultSetProducts.next()){
+                Product newProduct = new Product(resultSetProducts.getInt("product_nummer"),
+                        resultSetProducts.getString("naam"),
+                        resultSetProducts.getString("beschrijving"),
+                        resultSetProducts.getFloat("prijs"));
 
+                // OVChipkaart koppelen aan product
+                String queryGetKaarten = "SELECT kaart.kaart_nummer, geldig_tot, klasse, saldo, reiziger_id\n" +
+                        "FROM ov_chipkaart kaart\n" +
+                        "INNER JOIN ov_chipkaart_product ovproduct\n" +
+                        "ON kaart.kaart_nummer = ovproduct.kaart_nummer\n" +
+                        "WHERE ovproduct.product_nummer = ?;";
+
+                PreparedStatement prepStatementTwo = conn.prepareStatement(queryGetKaarten);
+                prepStatementTwo.setInt(1, newProduct.getId());
+                ResultSet resultSetCards = prepStatementTwo.executeQuery();
+
+                while(resultSetCards.next()){
+                    newProduct.addKaart(new OVChipkaart(resultSetCards.getInt("kaart_nummer"),
+                            resultSetCards.getDate("geldig_tot"),
+                            resultSetCards.getInt("klasse"),
+                            resultSetCards.getFloat("saldo"),
+                            rdao.findById(resultSetCards.getInt("reiziger_id"))));
+                }
+                producten.add(newProduct);
+            }
             return producten;
         }catch(Exception e){
             e.printStackTrace();

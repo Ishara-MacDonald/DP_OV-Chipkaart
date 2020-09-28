@@ -39,6 +39,14 @@ public class OVChipkaart {
     }
 
     public String toString() {
-        return String.format("OVChipkaart { #%s geldig tot: %s, klasse: %s, saldo: %s, %s } ", id, geldig_tot, klasse, saldo, reiziger);
+        String sString = String.format("OVChipkaart { #%s geldig tot: %s, klasse: %s, saldo: %s, reiziger_id: %s }", id, geldig_tot, klasse, saldo, reiziger.getId());
+
+        for(Product product : producten){
+            sString += "\n" + product.getNaam();
+        }
+
+        sString += " }";
+
+        return sString;
     }
 }
