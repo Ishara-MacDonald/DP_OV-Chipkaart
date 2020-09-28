@@ -12,6 +12,4 @@ interface ReizigerDAO {
     public Reiziger findById(int id);
     public List<Reiziger> findByGbdatum(String datum);
     public List<Reiziger> findAll();
-
-
 }

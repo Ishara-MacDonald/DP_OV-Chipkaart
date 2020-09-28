@@ -9,7 +9,7 @@ interface ProductDAO {
     public boolean delete(Product product);
 
     public Product findById(int id);
-    public Product findByReiziger(Reiziger reiziger);
+    public List<Product> findByOVChipkaart(OVChipkaart ovChipkaart);
     public List<Product> findAll();
 
 }

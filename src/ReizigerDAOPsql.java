@@ -37,9 +37,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
             st.executeUpdate();
             st.close();
             if( newAdres != null){ adao.save(newAdres); }
-            if(!newKaarten.isEmpty()){
-                for(OVChipkaart kaart : newKaarten){ ovdao.save(kaart); }
-            }
+            for(OVChipkaart kaart : newKaarten){ ovdao.save(kaart); }
 
             return true;
         }catch(Exception e){
@@ -71,12 +69,10 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                     adao.update(newAdres);
                 }else{ adao.save(newAdres); }
             }
-            if(!newKaarten.isEmpty()){
-                for(OVChipkaart kaart : newKaarten){
-                    if(adao.findById(kaart.getId()) != null){
-                        ovdao.update(kaart);
-                    }else{ ovdao.save(kaart); }
-                }
+            for(OVChipkaart kaart : newKaarten){
+                if(adao.findById(kaart.getId()) != null){
+                    ovdao.update(kaart);
+                }else{ ovdao.save(kaart); }
             }
 
             return true;
@@ -102,11 +98,7 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                     adao.delete(newAdres);
                 }
             }
-            if(!newKaarten.isEmpty()){
-                for(OVChipkaart kaart : newKaarten){
-                    ovdao.delete(kaart);
-                }
-            }
+            for(OVChipkaart kaart : newKaarten){ ovdao.delete(kaart); }
             reiziger.deleteOVKaarten();
 
             st.executeUpdate();
@@ -133,8 +125,9 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                         rs.getString("achternaam"),
                         rs.getDate("geboortedatum"));
 
-                if( newReiziger.getAdres() != null){
-                    newReiziger.setAdres(adao.findByReiziger(newReiziger));
+                newReiziger.setAdres(adao.findByReiziger(newReiziger));
+                for(OVChipkaart kaart: ovdao.findByReiziger(newReiziger)){
+                    newReiziger.addOVKaart(kaart);
                 }
 
                 return newReiziger;
@@ -182,7 +175,11 @@ public class ReizigerDAOPsql implements ReizigerDAO {
                 Date geboortedatum = rs.getDate("geboortedatum");
 
                 Reiziger newReiziger = new Reiziger(id, voorletters, tussenvoegsel, achternaam, geboortedatum);
+
                 newReiziger.setAdres(adao.findByReiziger(newReiziger));
+                for(OVChipkaart kaart: ovdao.findByReiziger(newReiziger)){
+                    newReiziger.addOVKaart(kaart);
+                }
                 reizigers.add(newReiziger);
             }
             return reizigers;

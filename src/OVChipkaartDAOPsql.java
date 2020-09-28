@@ -32,7 +32,7 @@ public class OVChipkaartDAOPsql implements OVChipkaartDAO{
             st.setFloat(4, ovChipkaart.getSaldo());
             st.setInt(5, reiziger.getId());
 
-            reiziger.addOVKaart(ovChipkaart);
+//            reiziger.addOVKaart(ovChipkaart);
 
             st.executeUpdate();
             st.close();

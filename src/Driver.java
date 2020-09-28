@@ -236,6 +236,11 @@ public class Driver {
         System.out.printf("Na de update: %s\n", pdao.findById(25));
         System.out.println();
 
+        System.out.println("[Test] Systeem vind de volgende ov-chipkaarten bij ProductDAO.findByOVChipkaart(33)");
+        OVChipkaart testKaart = ovdao.findById(35283);
+        printProductLoop(pdao.findByOVChipkaart(testKaart));
+        System.out.println();
+
         System.out.println("[Test] ProductDAO.delete() geeft het volgende resultaat:");
         System.out.println(pdao.delete(productOne));
 
@@ -249,9 +254,6 @@ public class Driver {
         System.out.printf("[Test] Eerst %s ov-chipkaarten, 2x na OVChipkaartDAO.save() ", pdao.findAll().size());
         System.out.printf("%s ov-chipkaarten", pdao.findAll().size());
         System.out.println("\n");
-
-        System.out.println("[Test] Systeem vind het volgende ov-chipkaart bij OVChipkaartDAO.findById(23):");
-        System.out.println();
 
         System.out.printf("[Test] OVChipkaartDAO.update() geeft de volgende resultaten:\nVoor de update: %s%n", pdao.findById(23));
 //        pdao.update(newOVChipkaart1);

@@ -1,10 +1,12 @@
 import jdk.jshell.spi.ExecutionControlProvider;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDOAPsql implements ProductDAO {
@@ -157,7 +159,32 @@ public class ProductDOAPsql implements ProductDAO {
         return null;
     }
 
-    public Product findByReiziger(Reiziger reiziger) {
+    public List<Product> findByOVChipkaart(OVChipkaart ovChipkaart) {
+        try{
+            List<Product> producten = new ArrayList<>();
+
+            String queryGetProducts = "SELECT prod.product_nummer, naam, beschrijving, prijs\n" +
+                    "FROM product prod\n" +
+                    "INNER JOIN ov_chipkaart_product ovproduct\n" +
+                    "ON prod.product_nummer = ovproduct.product_nummer\n" +
+                    "WHERE ovproduct.kaart_nummer = ?;";
+
+            PreparedStatement st = conn.prepareStatement(queryGetProducts);
+            st.setInt(1, ovChipkaart.getId());
+
+            ResultSet rs = st.executeQuery();
+
+            while(rs.next()){
+                producten.add( new Product(rs.getInt("product_nummer"),
+                        rs.getString("naam"),
+                        rs.getString("beschrijving"),
+                        rs.getFloat("prijs"))
+                );
+            }
+            return producten;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 

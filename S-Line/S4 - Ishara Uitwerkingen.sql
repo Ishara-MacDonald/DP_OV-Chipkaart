@@ -42,7 +42,7 @@ DROP VIEW IF EXISTS s4_2; CREATE OR REPLACE VIEW s4_2 AS                        
 SELECT naam
 FROM medewerkers
 GROUP BY naam
-HAVING naam LIKE 'DE %' OR naam LIKE 'HET %' OR naam LIKE 'DEN %';
+HAVING naam LIKE '% %';
 
 -- S4.3.
 -- Geef nu code, begindatum en aantal inschrijvingen (`aantal_inschrijvingen`) van alle
@@ -92,6 +92,7 @@ FROM medewerkers;
 -- er werkt (`aantal_medewerkers`), de gemiddelde commissie die ze
 -- krijgen (`commissie_medewerkers`), en hoeveel dat gemiddeld
 -- per verkoper is (`commissie_verkopers`).
+-- COALESCE( comm, 0 ) ==> maakt van alle NULL laatste parameter
 DROP VIEW IF EXISTS s4_7; CREATE OR REPLACE VIEW s4_7 AS                                                     -- [TEST]
 SELECT COUNT(mnr) AS aantal_medewerkers, SUM(comm)/ COUNT(mnr) AS commissie_medewerkers, AVG(comm) AS commissie_verkopers
 FROM medewerkers;

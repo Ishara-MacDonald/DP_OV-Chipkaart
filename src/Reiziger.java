@@ -49,6 +49,9 @@ public class Reiziger {
         if(adres != null){
             sString = String.format("Reiziger { #%s %s. %s %s, geb. %s, %s }", id, voorletters, tussenvoegsel, achternaam, geboortedatum.toString(), adres.toString());
         }
+        for(OVChipkaart kaart : kaarten){
+            sString += kaart + "\n";
+        }
         return sString;
     }
 }
