@@ -197,7 +197,18 @@ public class ProductDOAPsql implements ProductDAO {
     }
 
     public List<Product> findAll() {
-        
+        try{
+            List<Product> producten = new ArrayList<>();
+
+            String queryGetProducts = "SELECT product_nummer, naam, beschrijving, prijs" +
+                    "FROM product";
+
+            
+
+            return producten;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 }
