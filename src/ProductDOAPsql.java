@@ -40,7 +40,6 @@ public class ProductDOAPsql implements ProductDAO {
 
 
             for(OVChipkaart kaart : kaarten){
-                System.out.println("hey");
                 ovdao.save(kaart);
                 ovdao.findById(kaart.getId()).addProduct(product);
                 saveCardForProduct(kaart, product);

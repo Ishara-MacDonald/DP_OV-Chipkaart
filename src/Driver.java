@@ -232,13 +232,14 @@ public class Driver {
         System.out.println("\n---------- Test ProductDAO -------------");
         System.out.println();
 
-        System.out.println("[Test] ProductDAO.findAll() geeft de volgende ov-chipkaarten:");
+        System.out.println("[Test] ProductDAO.findAll() geeft de volgende producten:");
         printProductLoop(pdao.findAll());
         System.out.println();
 
-        System.out.println("[Test] ProductDAO.save() geeft het volgende resultaat:");
-        System.out.println(pdao.save(productOne));
-        System.out.println();
+        System.out.printf("[Test] Eerst %s producten, na ProductDAO.save() ", pdao.findAll().size());
+        pdao.save(productOne);
+        System.out.printf("%s producten", pdao.findAll().size());
+        System.out.println("\n");
 
         System.out.printf("[Test] ProductDAO.update() geeft de volgende resultaten:\nVoor de update: %s%n", pdao.findById(25));
         productOne.setNaam("Studenten Product");
@@ -246,16 +247,18 @@ public class Driver {
         System.out.printf("Na de update: %s\n", pdao.findById(25));
         System.out.println();
 
-        System.out.println("[Test] Systeem vind de volgende ov-chipkaarten bij ProductDAO.findByOVChipkaart(33)");
+        System.out.println("[Test] Systeem vind de volgende producten bij ProductDAO.findByOVChipkaart(35283)");
         printProductLoop(pdao.findByOVChipkaart(testKaart));
         System.out.println();
 
-        System.out.println("[Test] Systeem vind de volgende ov-chipkaarten bij ProductDAO.findByOVChipkaart(33)");
-        System.out.println(testKaart);
+        System.out.println("[Test] Systeem vind de volgende producten bij ProductDAO.findByOVChipkaart(33)");
+        printProductLoop(pdao.findByOVChipkaart(newOVChipkaart1));
         System.out.println();
 
-        System.out.println("[Test] ProductDAO.delete() geeft het volgende resultaat:");
-        System.out.println(pdao.delete(productOne));
+        System.out.printf("[Test] Eerst %s producten, na ProductDAO.delete() ", pdao.findAll().size());
+        pdao.delete(productOne);
+        System.out.printf("%s producten", pdao.findAll().size());
+        System.out.println("\n");
 
         rdao.delete(newReiziger);
 
