@@ -12,7 +12,6 @@
 --
 -- 1. Maak een view met de naam "deelnemers" waarmee je de volgende gegevens uit de tabellen inschrijvingen en uitvoering combineert:
 --    inschrijvingen.cursist, inschrijvingen.cursus, inschrijvingen.begindatum, uitvoeringen.docent, uitvoeringen.locatie
-
 CREATE OR REPLACE VIEW 	deelnemers AS
 SELECT ins.cursist, ins.cursus, ins.begindatum, uitv.docent, uitv.locatie
 FROM inschrijvingen ins, uitvoeringen uitv
@@ -30,7 +29,6 @@ ON mnr = cursist;
 -- 3. Is de view "deelnemers" updatable ? Waarom ?
 UPDATE deelnemers SET docent = 7566 WHERE cursist = 7499;
 'DETAIL: Views that do not select from a single table or view are not automatically updatable';
-
 
 -- S6.2.
 --

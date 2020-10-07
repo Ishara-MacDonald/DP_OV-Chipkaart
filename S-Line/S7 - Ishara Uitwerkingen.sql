@@ -76,18 +76,18 @@ Met een index erbij wordt er een techniek toegevoegd aan de database waarmee dez
 -- Sorteer het resultaat van de hele geheel op levertijd (desc) en verkoper.
 -- 1. Maak hieronder deze query (als je het goed doet zouden er 377 rijen uit moeten komen, en het kan best even duren...)
 
-levertijd:
-SELECT expected_delivery_date - order_date
-FROM orders
-
-totaal_aantal_producten:
-SELECT order_id, (
-    SELECT SUM(quantity)
-    FROM order_lines
-    GROUP BY order_id
-    HAVING orders.order_id = order_lines.order_id
-    )
-FROM orders
+-- levertijd:
+-- SELECT expected_delivery_date - order_date
+-- FROM orders
+--
+-- totaal_aantal_producten:
+-- SELECT order_id, (
+--     SELECT SUM(quantity)
+--     FROM order_lines
+--     GROUP BY order_id
+--     HAVING orders.order_id = order_lines.order_id
+--     )
+-- FROM orders
 
 SELECT order_id, order_date, salesperson_person_id AS verkoper, levertijd,
     (
@@ -109,6 +109,7 @@ AND ( expected_delivery_date - order_date) > 1.45
 ORDER BY levertijd DESC and verkoper
 
 CREATE INDEX ord_lines_si_id_idx ON order_lines (stock_item_id);
+CREATE INDEX ord_ord_id_idx ON orders (order_id);
 
 -- S7.3.B
 --
