@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58553c7-e594-40f3-847a-74c1cd0e4f1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/S-Line/S6 - Ishara Uitwerkingen.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/S-Line/S7 - Ishara Uitwerkingen.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductDOAPsql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductDOAPsql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +61,17 @@
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Driver" />
       <module name="DP_OV-Chipkaart" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +134,7 @@
       <workItem from="1601306166477" duration="6455000" />
       <workItem from="1601385809033" duration="1708000" />
       <workItem from="1601452674227" duration="2166000" />
+      <workItem from="1602046636355" duration="13884000" />
     </task>
     <servers />
   </component>
